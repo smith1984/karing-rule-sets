@@ -20,12 +20,18 @@ sing-box [SRS source format](https://sing-box.sagernet.org/configuration/rule-se
 
 ## Raw URL для sing-box
 
-После создания репо в Sourcecraft — определить точный формат raw URL. Кандидаты:
-- `https://sourcecraft.dev/<owner>/<repo>/raw/main/<path>`
-- `https://sourcecraft.dev/<owner>/<repo>/-/raw/main/<path>`
-- через API: `https://api.sourcecraft.dev/v1/repos/<owner>/<repo>/contents/<path>`
+**Primary (GitHub mirror):**
+```
+https://raw.githubusercontent.com/smith1984/karing-rule-sets/main/ru-extras.json
+```
 
-Проверить эмпирически: `curl -sI <candidate>` — ожидаем `200 OK` + `Content-Type: application/json` или `text/plain`.
+**Sourcecraft mirror** (`ssh://ssh.sourcecraft.dev/smith15031984/karing-rule-sets.git`) — не имеет прямого raw-URL для анонимного доступа (отдаёт HTML SPA). Используется только как backup git-mirror.
+
+При обновлении — push в **оба** remote одновременно:
+```bash
+cd /path/to/karing-rule-sets
+git push github main && git push origin main
+```
 
 ## Подключение в sing-box
 
