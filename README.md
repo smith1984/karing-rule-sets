@@ -57,18 +57,36 @@ git push github main && git push origin main
 { "rule_set": "ru-extras", "server": "local" }
 ```
 
-## Как добавить новый домен
+## Workflow добавления домена
 
-1. Открыть PR в этот репо с добавлением домена в `ru-extras.json`:
-   ```json
-   {
-     "version": 1,
-     "rules": [{ "domain": ["habr.com"] }]
-   }
-   ```
-2. Merge в main.
-3. Через ~1 час все sing-box-клиенты подхватят обновление автоматически (зависит от их `update_interval`).
-4. Если нужно срочно — на каждом клиенте `sing-box geosite` reload (или systemctl restart).
+**Через helper-скрипт (рекомендуется):**
+```bash
+cd ~/develop/smarthome/karing-rule-sets
+./add-domain.sh habr.com vc.ru              # как domain_suffix (default)
+./add-domain.sh -e exact.example.com        # exact match (без поддоменов)
+```
+
+Скрипт:
+1. Добавляет в `ru-extras.json` (idempotent — если уже есть, skip)
+2. `git commit + push` в **оба** remote (github + sourcecraft)
+3. Sing-box на клиентах подхватит за ≤1 час через `update_interval=1h`
+
+**Force-update** на конкретном устройстве (без ожидания):
+```bash
+sudo systemctl restart sing-box                # малинка
+systemctl --user restart sing-box              # ноут
+# для Karing на телефоне — toggle off/on
+```
+
+**Ручной способ** (без скрипта):
+```bash
+# Editor: добавить в rules[0].domain_suffix новый домен
+git commit -am "Add: <domain>" && git push github main && git push origin main
+```
+
+## Важно: версия SRS формата
+
+`"version": 2` — обязательно (sing-box 1.13.x не поддерживает 3, а 1 устарел). Не менять без проверки!
 
 ## Принципы наполнения
 
