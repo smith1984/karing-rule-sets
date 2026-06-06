@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "domain": [
+        "habr.com",
+        "meduza.io",
+        "novayagazeta.eu"
+      ],
+      "domain_suffix": [
+        ".kinopoisk.io"
+      ]
+    }
+  ]
+}
