@@ -1,0 +1,9 @@
+! Title: smarthome AdGuard allowlist
+! Description: домены, ошибочно блокируемые фильтрами (AdGuard DNS / Tracking / OISD),
+!   но необходимые для работы сервисов. Exception-правила (@@) перекрывают блок.
+! Hosting: https://raw.githubusercontent.com/smith1984/karing-rule-sets/main/adguard-allowlist.txt
+!   Добавляется фильтром во все AdGuard (малинка/AEZA/KZ/ноут/iPhone), авто-обновление.
+! Как добавлять: дописать строку @@||<domain>^ , закоммитить и запушить (github+sourcecraft).
+!
+! --- Kinopoisk / Yandex player telemetry (без неё ломается плеер hd.kinopoisk.ru) ---
+@@||log.strm.yandex.ru^
