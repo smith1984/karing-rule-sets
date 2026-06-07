@@ -8,3 +8,4 @@
 ! --- Kinopoisk / Yandex player telemetry (без неё ломается плеер hd.kinopoisk.ru) ---
 @@||log.strm.yandex.ru^
 @@||mc.yandex.ru^
+@@||browser-updater.yandex.net^
