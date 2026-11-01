@@ -9,6 +9,10 @@
 ## Файлы
 
 - `ru-extras.json` — список RU-сайтов на foreign-доменах, которым нужен **direct маршрут** (минуя VPN). Пустой по умолчанию, наполняется по мере встречи проблем.
+- `ru-tld.json` — RU-зоны (`.ru/.su/.рф/.бел/.moscow`, + punycode) → **direct**.
+- `home-connect.json` — Home Connect / Bosch (`home-connect.com`, `bosch.com`, `singlekey-id.com`) → **узел KZ через relay** (блокируют РФ и AEZA).
+- `reverse-path.json` — `100.64.0.0/10` (tailnet) и `192.168.31.50/32` (малинка/HA) → **proxy** (доступ к дому вне дома через сервер).
+  Три файла выше нужны Karing: из sing-box-профиля он переносит только remote rule_set по URL, инлайн-правила отбрасывает (проверено 01.11.2026).
 - `examples/ru-extras-sample.json` — пример с заполненным списком, для понимания формата.
 
 ## Формат

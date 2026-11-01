@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "home-connect.com",
+        "bosch.com",
+        "singlekey-id.com"
+      ]
+    }
+  ]
+}

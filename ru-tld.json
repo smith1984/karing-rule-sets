@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        ".ru",
+        ".su",
+        ".рф",
+        ".бел",
+        ".moscow",
+        ".xn--p1ai",
+        ".xn--90ais"
+      ]
+    }
+  ]
+}
