@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "rules": [
+    {
+      "domain_suffix": [
+        "fr.im",
+        "drugvokrug.ru"
+      ]
+    },
+    {
+      "ip_cidr": [
+        "89.111.56.0/24"
+      ]
+    }
+  ]
+}

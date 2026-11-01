@@ -10,6 +10,7 @@
 
 - `ru-extras.json` — RU-сервисы на foreign-доменах → **direct** (минуя VPN): `pachca.com`, «Друг Вокруг» (`fr.im` — стримы на Selectel МСК/СПб, `drugvokrug.ru`, `89.111.56.0/24`). geoip-ru в Karing их не ловит — у доменных соединений нет IP на момент маршрутизации.
 - `ru-tld.json` — RU-зоны (`.ru/.su/.рф/.бел/.moscow`, + punycode) → **direct**.
+- `drugvokrug.json` — «Друг Вокруг» (`fr.im` — стримы Selectel МСК/СПб, `drugvokrug.ru`, `89.111.56.0/24`) → **direct**. Отдельный файл для Karing: содержимое уже скачанного набора он не обновляет даже при перескачке профиля, новый URL — скачивает сразу (01.11.2026).
 - `home-connect.json` — Home Connect / Bosch (`home-connect.com`, `bosch.com`, `singlekey-id.com`) → **узел KZ через relay** (блокируют РФ и AEZA).
 - `reverse-path.json` — `100.64.0.0/10` (tailnet) и `192.168.31.50/32` (малинка/HA) → **proxy** (доступ к дому вне дома через сервер).
   Три файла выше нужны Karing: из sing-box-профиля он переносит только remote rule_set по URL, инлайн-правила отбрасывает (проверено 01.11.2026).
